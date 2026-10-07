@@ -74,7 +74,7 @@ supabase/
 
 ### Demonstração e dados reais
 
-Sem `NEXT_PUBLIC_SUPABASE_URL` e `NEXT_PUBLIC_SUPABASE_ANON_KEY`, o site usa `src/data/demo/` e mostra a faixa “Demonstração”. Com as variáveis configuradas, tudo vem do banco e a pasta demo deixa de ser usada. Nenhuma tela lê dados diretamente; tudo passa por `src/data/catalog.ts`.
+Sem `NEXT_PUBLIC_SUPABASE_URL` e a chave pública do Supabase, o site usa `src/data/demo/` e mostra a faixa “Demonstração”. Com as variáveis configuradas, tudo vem do banco e a pasta demo deixa de ser usada. Nenhuma tela lê dados diretamente; tudo passa por `src/data/catalog.ts`.
 
 ## Configurar o Supabase
 
@@ -84,7 +84,7 @@ Sem `NEXT_PUBLIC_SUPABASE_URL` e `NEXT_PUBLIC_SUPABASE_ANON_KEY`, o site usa `sr
    2. `supabase/migrations/0002_admin_functions.sql`
    3. `supabase/seed.sql` (categorias, marcas e configurações)
    4. Opcional: `supabase/seed-demo-products.sql`, para começar com os produtos de exemplo. Para removê-los depois: `delete from products where 'demo' = any(tags);`
-3. Em **Project Settings → API**, copie a URL e a chave `anon` para `NEXT_PUBLIC_SUPABASE_URL` e `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
+3. Em **Project Settings → API**, copie a URL e a **publishable key** (`sb_publishable_...`) para `NEXT_PUBLIC_SUPABASE_URL` e `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`. A antiga chave `anon` também funciona, em `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
 4. Crie o primeiro administrador:
    1. Em **Authentication → Users → Add user**, crie o usuário com e-mail e senha.
    2. Copie o ID do usuário e rode no SQL Editor:
@@ -97,7 +97,7 @@ Sem `NEXT_PUBLIC_SUPABASE_URL` e `NEXT_PUBLIC_SUPABASE_ANON_KEY`, o site usa `sr
 
 - **RLS ativo em todas as tabelas.** Visitantes só leem o que está ativo e só conseguem *inserir* eventos e leads, nunca lê-los.
 - **Escritas só para administradores.** Toda escrita exige um usuário cadastrado em `admins`, verificado pela função `is_admin()`.
-- **Chave `service_role` fora do site.** O site usa apenas a chave pública (`anon`).
+- **Chave secreta fora do site.** O site usa apenas a chave pública (publishable/anon), nunca a `secret`/`service_role`.
 - **Imagens no bucket público `catalog`.** Só administradores enviam ou removem arquivos.
 
 ## Painel `/admin`

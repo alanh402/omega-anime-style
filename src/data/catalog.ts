@@ -20,7 +20,23 @@ export function getRepository(): CatalogRepository {
 /** Tag usada pelo admin para invalidar o cache após salvar */
 export const CATALOG_CACHE_TAG = "catalog";
 
-const loadRemoteSettings = unstable_cache(() => getRepository().getSettings(), ["settings"], {
+/**
+ * Durante o build, uma falha do banco (ex.: tabelas ainda não criadas) não deve
+ * impedir a publicação: as páginas saem vazias e se atualizam em até 60 s.
+ * Fora do build, o erro sobe normalmente para a tela de erro.
+ */
+const isBuild = process.env.NEXT_PHASE === "phase-production-build";
+async function tolerantDuringBuild<T>(what: string, fn: () => Promise<T>, fallback: T): Promise<T> {
+  try {
+    return await fn();
+  } catch (e) {
+    if (!isBuild) throw e;
+    console.warn(`[catálogo] ${what} indisponível durante o build: ${(e as Error).message}`);
+    return fallback;
+  }
+}
+
+const loadRemoteSettings = unstable_cache(() => tolerantDuringBuild("configurações", () => getRepository().getSettings(), {}), ["settings"], {
   revalidate: CATALOG_REVALIDATE_SECONDS,
   tags: [CATALOG_CACHE_TAG],
 });
@@ -28,7 +44,11 @@ const loadRemoteSettings = unstable_cache(() => getRepository().getSettings(), [
 const loadRaw = unstable_cache(
   async () => {
     const repo = getRepository();
-    const [products, categories, brands] = await Promise.all([repo.listProducts(), repo.listCategories(), repo.listBrands()]);
+    const [products, categories, brands] = await tolerantDuringBuild(
+      "catálogo",
+      () => Promise.all([repo.listProducts(), repo.listCategories(), repo.listBrands()]),
+      [[], [], []] as [Product[], Category[], Brand[]],
+    );
     return { products, categories, brands, source: repo.source };
   },
   ["catalog-raw"],

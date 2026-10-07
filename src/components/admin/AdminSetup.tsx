@@ -7,7 +7,7 @@ import { StatCard } from "./StatCard";
 const steps = [
   { icon: Database, title: "Crie um projeto no Supabase", text: "supabase.com → New project (plano gratuito atende o início)." },
   { icon: Upload, title: "Rode os arquivos de supabase/migrations", text: "No SQL Editor: 0001_catalog_schema.sql, depois 0002_admin_functions.sql e, se quiser, supabase/seed.sql." },
-  { icon: KeyRound, title: "Configure as variáveis de ambiente", text: "NEXT_PUBLIC_SUPABASE_URL e NEXT_PUBLIC_SUPABASE_ANON_KEY (Project Settings → API). Nunca use a service_role no site." },
+  { icon: KeyRound, title: "Configure as variáveis de ambiente", text: "NEXT_PUBLIC_SUPABASE_URL e NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY (botão Connect no Supabase). Nunca use a chave secret/service_role no site." },
   { icon: ShieldCheck, title: "Crie o primeiro administrador", text: "Authentication → Add user, e depois: insert into admins (user_id) values ('<id do usuário>');" },
 ];
 

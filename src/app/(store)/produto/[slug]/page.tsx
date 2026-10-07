@@ -20,7 +20,8 @@ export const revalidate = 60;
 type Params = { slug: string };
 
 export async function generateStaticParams() {
-  const { products } = await getCatalog();
+  // Se o banco estiver indisponível no build, as páginas são geradas sob demanda
+  const { products } = await getCatalog().catch(() => ({ products: [] as Array<{ slug: string }> }));
   return products.map((p) => ({ slug: p.slug }));
 }
 

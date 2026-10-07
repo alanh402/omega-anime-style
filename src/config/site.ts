@@ -13,7 +13,8 @@ export function getSiteUrl(): string {
 
 export const supabaseConfig = {
   url: process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
-  anonKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "",
+  // Aceita o nome novo (publishable) e o antigo (anon) — são equivalentes
+  anonKey: process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "",
 };
 
 /** Sem Supabase configurado, o catálogo roda com os dados de demonstração */

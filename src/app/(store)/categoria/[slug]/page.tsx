@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 }
 
 export async function generateStaticParams() {
-  const { categories } = await getCatalog();
+  const { categories } = await getCatalog().catch(() => ({ categories: [] as Array<{ slug: string }> }));
   return categories.map((c) => ({ slug: c.slug }));
 }
 
