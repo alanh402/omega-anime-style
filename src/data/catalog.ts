@@ -1,7 +1,7 @@
 import "server-only";
 import { cache } from "react";
 import { unstable_cache } from "next/cache";
-import { CATALOG_REVALIDATE_SECONDS, isSupabaseEnabled } from "@/config/site";
+import { CATALOG_REVALIDATE_SECONDS, isSupabaseEnabled, supabaseConfig } from "@/config/site";
 import { defaultSettings } from "@/config/default-settings";
 import type { Brand, Category, Collection, Product, ProductView, StoreSettings } from "@/lib/types";
 import { getTotalStock, isOnSale } from "@/lib/pricing";
@@ -26,6 +26,8 @@ export const CATALOG_CACHE_TAG = "catalog";
  * Fora do build, o erro sobe normalmente para a tela de erro.
  */
 const isBuild = process.env.NEXT_PHASE === "phase-production-build";
+/** Chave do cache inclui a fonte, para não reaproveitar dados de outra origem */
+const SOURCE_KEY = isSupabaseEnabled ? supabaseConfig.url : "demo";
 async function tolerantDuringBuild<T>(what: string, fn: () => Promise<T>, fallback: T): Promise<T> {
   try {
     return await fn();
@@ -36,7 +38,7 @@ async function tolerantDuringBuild<T>(what: string, fn: () => Promise<T>, fallba
   }
 }
 
-const loadRemoteSettings = unstable_cache(() => tolerantDuringBuild("configurações", () => getRepository().getSettings(), {}), ["settings"], {
+const loadRemoteSettings = unstable_cache(() => tolerantDuringBuild("configurações", () => getRepository().getSettings(), {}), ["settings", SOURCE_KEY], {
   revalidate: CATALOG_REVALIDATE_SECONDS,
   tags: [CATALOG_CACHE_TAG],
 });
@@ -51,7 +53,7 @@ const loadRaw = unstable_cache(
     );
     return { products, categories, brands, source: repo.source };
   },
-  ["catalog-raw"],
+  ["catalog-raw", SOURCE_KEY],
   { revalidate: CATALOG_REVALIDATE_SECONDS, tags: [CATALOG_CACHE_TAG] },
 );
 
