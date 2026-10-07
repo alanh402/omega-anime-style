@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <radialGradient id="bg" cx=".5" cy=".42" r=".75"><stop offset="0" stop-color="#25252d"/><stop offset=".6" stop-color="#141419"/><stop offset="1" stop-color="#0c0c10"/></radialGradient>
+    <radialGradient id="floor" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#d9a93b" stop-opacity=".35"/><stop offset="1" stop-color="#d9a93b" stop-opacity="0"/></radialGradient>
+    <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="7" cy="7" r="3" fill="#000"/></pattern>
+  </defs>
+  <rect width="800" height="800" fill="url(#bg)"/>
+  <ellipse cx="400" cy="715" rx="260" ry="40" fill="url(#floor)"/>
+  <defs><linearGradient id="g5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#656568"/><stop offset=".55" stop-color="#3a3a3d"/><stop offset="1" stop-color="#262628"/></linearGradient></defs><rect x="268" y="124" width="264" height="552" rx="44" fill="url(#g5)" stroke="#717173" stroke-width="4"/>
+      <rect x="288" y="144" width="150" height="150" rx="38" fill="#333336" stroke="#717173" stroke-width="2"/>
+      <circle cx="328" cy="184" r="27" fill="#0b0b0f" stroke="#717173" stroke-width="5"/><circle cx="328" cy="184" r="10" fill="#1d2a3f"/><circle cx="328" cy="254" r="27" fill="#0b0b0f" stroke="#717173" stroke-width="5"/><circle cx="328" cy="254" r="10" fill="#1d2a3f"/><circle cx="398" cy="219" r="27" fill="#0b0b0f" stroke="#717173" stroke-width="5"/><circle cx="398" cy="219" r="10" fill="#1d2a3f"/>
+      <circle cx="410" cy="170" r="7" fill="#939394"/>
+  <text x="40" y="770" font-family="Arial" font-size="18" letter-spacing="3" fill="#75726c">IMAGEM ILUSTRATIVA</text>
+</svg>

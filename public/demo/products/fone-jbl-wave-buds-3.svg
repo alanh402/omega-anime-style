@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <radialGradient id="bg" cx=".5" cy=".42" r=".75"><stop offset="0" stop-color="#25252d"/><stop offset=".6" stop-color="#141419"/><stop offset="1" stop-color="#0c0c10"/></radialGradient>
+    <radialGradient id="floor" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#d9a93b" stop-opacity=".35"/><stop offset="1" stop-color="#d9a93b" stop-opacity="0"/></radialGradient>
+    <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="7" cy="7" r="3" fill="#000"/></pattern>
+  </defs>
+  <rect width="800" height="800" fill="url(#bg)"/>
+  <ellipse cx="400" cy="715" rx="260" ry="40" fill="url(#floor)"/>
+  <defs><linearGradient id="g39" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5d8fdf"/><stop offset=".55" stop-color="#2f6fd6"/><stop offset="1" stop-color="#1f488b"/></linearGradient></defs>
+      <rect x="250" y="360" width="300" height="230" rx="80" fill="url(#g39)" stroke="#6997e1" stroke-width="3"/>
+      <path d="M250 440 H550" stroke="#6997e1" stroke-width="3"/><circle cx="400" cy="520" r="6" fill="#3ccf8e"/>
+      <g transform="rotate(-18 310 300)"><ellipse cx="310" cy="270" rx="38" ry="44" fill="url(#g39)" stroke="#6997e1" stroke-width="3"/><rect x="297" y="290" width="26" height="90" rx="13" fill="url(#g39)" stroke="#6997e1" stroke-width="3"/></g><g transform="rotate(18 490 300)"><ellipse cx="490" cy="270" rx="38" ry="44" fill="url(#g39)" stroke="#6997e1" stroke-width="3"/><rect x="477" y="290" width="26" height="90" rx="13" fill="url(#g39)" stroke="#6997e1" stroke-width="3"/></g>
+  <text x="40" y="770" font-family="Arial" font-size="18" letter-spacing="3" fill="#75726c">IMAGEM ILUSTRATIVA</text>
+</svg>

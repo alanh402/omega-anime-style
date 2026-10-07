@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <radialGradient id="bg" cx=".5" cy=".42" r=".75"><stop offset="0" stop-color="#25252d"/><stop offset=".6" stop-color="#141419"/><stop offset="1" stop-color="#0c0c10"/></radialGradient>
+    <radialGradient id="floor" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#d9a93b" stop-opacity=".35"/><stop offset="1" stop-color="#d9a93b" stop-opacity="0"/></radialGradient>
+    <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="7" cy="7" r="3" fill="#000"/></pattern>
+  </defs>
+  <rect width="800" height="800" fill="url(#bg)"/>
+  <ellipse cx="400" cy="715" rx="260" ry="40" fill="url(#floor)"/>
+  <defs><linearGradient id="g22" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#56575a"/><stop offset=".55" stop-color="#26272c"/><stop offset="1" stop-color="#19191d"/></linearGradient></defs>
+      <path d="M240 320 C270 270 530 270 560 320 C620 420 660 560 600 590 C560 610 530 540 500 500 L300 500 C270 540 240 610 200 590 C140 560 180 420 240 320Z" fill="url(#g22)" stroke="#636367" stroke-width="3"/>
+      <path d="M330 300 L470 300 L460 400 L340 400Z" fill="#17171a" opacity=".85"/>
+      <circle cx="330" cy="450" r="34" fill="#17171a"/><circle cx="470" cy="450" r="34" fill="#17171a"/>
+      <circle cx="330" cy="450" r="20" fill="#2a2b31"/><circle cx="470" cy="450" r="20" fill="#2a2b31"/>
+      <circle cx="540" cy="360" r="12" fill="none" stroke="#17171a" stroke-width="4"/><circle cx="570" cy="390" r="12" fill="none" stroke="#17171a" stroke-width="4"/><circle cx="540" cy="420" r="12" fill="none" stroke="#17171a" stroke-width="4"/><circle cx="510" cy="390" r="12" fill="none" stroke="#17171a" stroke-width="4"/>
+      <path d="M250 375 h40 M270 355 v40" stroke="#17171a" stroke-width="12" stroke-linecap="round"/>
+      <rect x="368" y="408" width="64" height="5" rx="2" fill="#3b7bff"/>
+  <text x="40" y="770" font-family="Arial" font-size="18" letter-spacing="3" fill="#75726c">IMAGEM ILUSTRATIVA</text>
+</svg>

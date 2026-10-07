@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
+  <defs><pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="7" cy="7" r="3" fill="#000"/></pattern>
+  <radialGradient id="cbg" cx=".75" cy=".45" r=".8"><stop offset="0" stop-color="#2a2418"/><stop offset=".55" stop-color="#15151a"/><stop offset="1" stop-color="#0c0c10"/></radialGradient></defs>
+  <rect width="1200" height="600" fill="url(#cbg)"/>
+  <g transform="translate(440 90) scale(0.5)"><defs><linearGradient id="g62" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8c76bb"/><stop offset=".55" stop-color="#6b4fa8"/><stop offset="1" stop-color="#46336d"/></linearGradient></defs><rect x="268" y="124" width="264" height="552" rx="44" fill="url(#g62)" stroke="#9480c0" stroke-width="4"/>
+      <rect x="288" y="144" width="150" height="150" rx="38" fill="#5e4694" stroke="#9480c0" stroke-width="2"/>
+      <circle cx="328" cy="184" r="27" fill="#0b0b0f" stroke="#9480c0" stroke-width="5"/><circle cx="328" cy="184" r="10" fill="#1d2a3f"/><circle cx="328" cy="254" r="27" fill="#0b0b0f" stroke="#9480c0" stroke-width="5"/><circle cx="328" cy="254" r="10" fill="#1d2a3f"/><circle cx="398" cy="219" r="27" fill="#0b0b0f" stroke="#9480c0" stroke-width="5"/><circle cx="398" cy="219" r="10" fill="#1d2a3f"/>
+      <circle cx="410" cy="170" r="7" fill="#ae9ecf"/></g><g transform="translate(622 20) scale(0.62)"><defs><linearGradient id="g63" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#505155"/><stop offset=".55" stop-color="#1f2025"/><stop offset="1" stop-color="#141518"/></linearGradient></defs>
+      <rect x="330" y="120" width="140" height="190" rx="30" fill="#1c1d21"/><rect x="330" y="490" width="140" height="190" rx="30" fill="#1c1d21"/>
+      <rect x="280" y="270" width="240" height="260" rx="60" fill="url(#g63)" stroke="#5e5e62" stroke-width="4"/>
+      <defs><linearGradient id="s64" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a1f0b"/><stop offset=".45" stop-color="#14141a"/><stop offset="1" stop-color="#0b0b10"/></linearGradient></defs>
+  <rect x="300" y="290" width="200" height="220" rx="46" fill="url(#s64)"/>
+  <path d="M320 510 L424 290 L456 290 L352 510Z" fill="#fff" opacity=".04"/>
+  <text x="400" y="414" text-anchor="middle" font-family="Georgia,serif" font-size="64" fill="#d9a93b" opacity=".85">Ω</text></g><g transform="translate(890 90) scale(0.5)"><defs><linearGradient id="g65" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f5cf5e"/><stop offset=".55" stop-color="#f2c230"/><stop offset="1" stop-color="#9d7e1f"/></linearGradient></defs><rect x="268" y="124" width="264" height="552" rx="44" fill="url(#g65)" stroke="#b69224" stroke-width="4"/>
+      <rect x="288" y="144" width="150" height="150" rx="38" fill="#d5ab2a" stroke="#b69224" stroke-width="2"/>
+      <circle cx="328" cy="184" r="27" fill="#0b0b0f" stroke="#b69224" stroke-width="5"/><circle cx="328" cy="184" r="10" fill="#1d2a3f"/><circle cx="328" cy="254" r="27" fill="#0b0b0f" stroke="#b69224" stroke-width="5"/><circle cx="328" cy="254" r="10" fill="#1d2a3f"/><circle cx="398" cy="219" r="27" fill="#0b0b0f" stroke="#b69224" stroke-width="5"/><circle cx="398" cy="219" r="10" fill="#1d2a3f"/>
+      <circle cx="410" cy="170" r="7" fill="#f8dd8d"/></g>
+</svg>

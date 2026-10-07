@@ -1,26 +1,154 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ==========================================================================
+   Omega Anime Style — Design tokens
+   Base escura (preto/grafite) + dourado da marca como destaque.
+   Verde reservado exclusivamente para ações de WhatsApp.
+   ========================================================================== */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@theme {
+  --color-bg: #0a0a0c;
+  --color-surface: #131317;
+  --color-surface-2: #1b1b21;
+  --color-surface-3: #24242c;
+  --color-line: #2a2a33;
+  --color-line-strong: #3a3a45;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --color-text: #f5f2ea;
+  --color-muted: #a6a29a;
+  --color-subtle: #75726c;
+
+  --color-gold: #d9a93b;
+  --color-gold-bright: #f3cf6c;
+  --color-gold-deep: #9b6c1c;
+  --color-gold-ink: #1a1203;
+
+  --color-whatsapp: #25d366;
+  --color-whatsapp-deep: #128c4b;
+  --color-success: #3ccf8e;
+  --color-danger: #f2555a;
+  --color-warning: #f2a33a;
+  --color-info: #6aa8ff;
+
+  --font-display: "Unbounded Variable", "Manrope Variable", system-ui, sans-serif;
+  --font-sans: "Manrope Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --radius-card: 1.125rem;
+  --radius-control: 0.875rem;
+
+  --shadow-card: 0 1px 0 rgb(255 255 255 / 0.04) inset, 0 12px 32px -18px rgb(0 0 0 / 0.8);
+  --shadow-pop: 0 24px 60px -20px rgb(0 0 0 / 0.85);
+  --shadow-gold: 0 10px 30px -12px rgb(217 169 59 / 0.55);
+
+  --breakpoint-xs: 23rem; /* 368px */
+
+  --animate-pop: pop 360ms cubic-bezier(0.2, 0.9, 0.3, 1.4);
+  --animate-fade-up: fade-up 420ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-shimmer: shimmer 1.4s linear infinite;
+  --animate-slide-up: slide-up 280ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  --animate-slide-left: slide-left 280ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  --animate-fade-in: fade-in 200ms ease-out;
+
+  @keyframes pop {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.28); }
+    100% { transform: scale(1); }
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes shimmer {
+    from { background-position: -200% 0; }
+    to { background-position: 200% 0; }
+  }
+  @keyframes slide-up {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+  @keyframes slide-left {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  html {
+    color-scheme: dark;
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+  body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-feature-settings: "tnum" 0;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-gold-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-gold-bright);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  input, select, textarea, button { font: inherit; }
+  img { max-width: 100%; }
+}
+
+@layer components {
+  /* Texto dourado metálico, usado com moderação em títulos-chave */
+  .text-gold-metal {
+    background: linear-gradient(180deg, #fff1c1 0%, #f3cf6c 30%, #d9a93b 58%, #9b6c1c 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .bg-gold-metal {
+    background: linear-gradient(160deg, #f8dc8a 0%, #e2b347 38%, #c8952c 70%, #a8761f 100%);
+  }
+  .tabular { font-variant-numeric: tabular-nums; }
+
+  /* Corte diagonal inspirado em HUD de games/anime */
+  .cut-corner {
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+  }
+  .cut-corner-sm {
+    clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+  }
+
+  .skeleton {
+    background: linear-gradient(90deg, var(--color-surface-2) 0%, var(--color-surface-3) 50%, var(--color-surface-2) 100%);
+    background-size: 200% 100%;
+    animation: var(--animate-shimmer);
+  }
+
+  .scrollbar-none { scrollbar-width: none; }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+
+  .speed-lines {
+    background-image: repeating-linear-gradient(
+      115deg,
+      transparent 0 22px,
+      rgb(217 169 59 / 0.05) 22px 23px
+    );
+  }
+
+  .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

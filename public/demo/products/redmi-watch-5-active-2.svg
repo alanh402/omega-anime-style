@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <radialGradient id="bg" cx=".5" cy=".42" r=".75"><stop offset="0" stop-color="#25252d"/><stop offset=".6" stop-color="#141419"/><stop offset="1" stop-color="#0c0c10"/></radialGradient>
+    <radialGradient id="floor" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#d9a93b" stop-opacity=".35"/><stop offset="1" stop-color="#d9a93b" stop-opacity="0"/></radialGradient>
+    <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="7" cy="7" r="3" fill="#000"/></pattern>
+  </defs>
+  <rect width="800" height="800" fill="url(#bg)"/>
+  <ellipse cx="400" cy="715" rx="260" ry="40" fill="url(#floor)"/>
+  <defs><linearGradient id="g53" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ece8df"/><stop offset=".55" stop-color="#e7e1d6"/><stop offset="1" stop-color="#96928b"/></linearGradient></defs>
+      <rect x="330" y="120" width="140" height="190" rx="30" fill="#d0cbc1"/><rect x="330" y="490" width="140" height="190" rx="30" fill="#d0cbc1"/>
+      <rect x="280" y="270" width="240" height="260" rx="60" fill="url(#g53)" stroke="#ada9a1" stroke-width="4"/>
+      <defs><linearGradient id="s54" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2a1f0b"/><stop offset=".45" stop-color="#14141a"/><stop offset="1" stop-color="#0b0b10"/></linearGradient></defs>
+  <rect x="300" y="290" width="200" height="220" rx="46" fill="url(#s54)"/>
+  <path d="M320 510 L424 290 L456 290 L352 510Z" fill="#fff" opacity=".04"/>
+  <text x="400" y="414" text-anchor="middle" font-family="Georgia,serif" font-size="64" fill="#d9a93b" opacity=".85">Ω</text>
+  <text x="40" y="770" font-family="Arial" font-size="18" letter-spacing="3" fill="#75726c">IMAGEM ILUSTRATIVA</text>
+</svg>

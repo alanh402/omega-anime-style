@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <radialGradient id="bg" cx=".5" cy=".42" r=".75"><stop offset="0" stop-color="#25252d"/><stop offset=".6" stop-color="#141419"/><stop offset="1" stop-color="#0c0c10"/></radialGradient>
+    <radialGradient id="floor" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#d9a93b" stop-opacity=".35"/><stop offset="1" stop-color="#d9a93b" stop-opacity="0"/></radialGradient>
+    <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="7" cy="7" r="3" fill="#000"/></pattern>
+  </defs>
+  <rect width="800" height="800" fill="url(#bg)"/>
+  <ellipse cx="400" cy="715" rx="260" ry="40" fill="url(#floor)"/>
+  <defs><linearGradient id="g24" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f2f2f4"/><stop offset=".55" stop-color="#eeeef1"/><stop offset="1" stop-color="#9b9b9d"/></linearGradient></defs>
+      <path d="M220 470 C220 220 580 220 580 470" fill="none" stroke="#d6d6d9" stroke-width="34" stroke-linecap="round"/>
+      <path d="M240 470 C240 260 560 260 560 470" fill="none" stroke="#1b1c21" stroke-width="14" stroke-linecap="round"/>
+      <rect x="170" y="420" width="120" height="190" rx="56" fill="url(#g24)" stroke="#b3b3b5" stroke-width="3"/>
+      <rect x="510" y="420" width="120" height="190" rx="56" fill="url(#g24)" stroke="#b3b3b5" stroke-width="3"/>
+      <rect x="276" y="450" width="26" height="130" rx="12" fill="#1b1c21"/><rect x="498" y="450" width="26" height="130" rx="12" fill="#1b1c21"/>
+  <text x="40" y="770" font-family="Arial" font-size="18" letter-spacing="3" fill="#75726c">IMAGEM ILUSTRATIVA</text>
+</svg>
