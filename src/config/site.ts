@@ -11,10 +11,20 @@ export function getSiteUrl(): string {
   return "http://localhost:3000";
 }
 
+/** Limpa valores colados com espaços, aspas ou sem https:// (erro comum no painel da Vercel) */
+function cleanEnv(v: string | undefined): string {
+  return (v ?? "").trim().replace(/^["']|["']$/g, "").trim();
+}
+function cleanUrl(v: string | undefined): string {
+  let u = cleanEnv(v).replace(/\/+$/, "").replace(/\/rest\/v1$/, "");
+  if (u && !/^https?:\/\//.test(u)) u = `https://${u}`;
+  return u;
+}
+
 export const supabaseConfig = {
-  url: process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
+  url: cleanUrl(process.env.NEXT_PUBLIC_SUPABASE_URL),
   // Aceita o nome novo (publishable) e o antigo (anon) — são equivalentes
-  anonKey: process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "",
+  anonKey: cleanEnv(process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY),
 };
 
 /** Sem Supabase configurado, o catálogo roda com os dados de demonstração */

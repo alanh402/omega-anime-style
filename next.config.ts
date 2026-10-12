@@ -2,7 +2,9 @@ import type { NextConfig } from "next";
 
 const supabaseHost = (() => {
   try {
-    return process.env.NEXT_PUBLIC_SUPABASE_URL ? new URL(process.env.NEXT_PUBLIC_SUPABASE_URL).hostname : undefined;
+    const raw = (process.env.NEXT_PUBLIC_SUPABASE_URL ?? "").trim().replace(/^["']|["']$/g, "");
+    if (!raw) return undefined;
+    return new URL(/^https?:\/\//.test(raw) ? raw : `https://${raw}`).hostname;
   } catch {
     return undefined;
   }

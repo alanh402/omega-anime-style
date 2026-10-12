@@ -1,6 +1,7 @@
 import type { CatalogRepository } from "../repository";
 import type { StoreSettings } from "@/lib/types";
 import { getPublicSupabase } from "./public-client";
+import { supabaseConfig } from "@/config/site";
 import {
   PRODUCT_SELECT,
   mapBrand,
@@ -11,8 +12,16 @@ import {
   type ProductRow,
 } from "./mappers";
 
-function fail(what: string, error: { message: string }): never {
-  throw new Error(`Supabase: falha ao carregar ${what} — ${error.message}`);
+function fail(what: string, error: { message: string; details?: string }): never {
+  // Mostra o host usado e a causa real (ex.: DNS), facilitando o diagnóstico nos logs
+  const host = (() => {
+    try {
+      return new URL(supabaseConfig.url).host;
+    } catch {
+      return JSON.stringify(supabaseConfig.url);
+    }
+  })();
+  throw new Error(`Supabase: falha ao carregar ${what} (host ${host}) — ${error.message}${error.details ? ` | ${error.details}` : ""}`);
 }
 
 export const supabaseRepository: CatalogRepository = {
